@@ -55,7 +55,7 @@ build: update
 	@cd $(SUBMODULE_NAME) && make build
 	@echo "${YELLOW}Construction de l'application...${NC}"
 	@mkdir -p bin
-	@cp $(SUBMODULE_NAME)/telegraf $(BINARY)
+	@mv $(SUBMODULE_NAME)/telegraf $(BINARY)
 	@echo "${GREEN}Application construite : $(BINARY)${NC}"
 
 # Nettoyage
@@ -68,4 +68,4 @@ clean:
 	@rm -rf bin/
 
 # Par défaut, affiche l'aide
-.DEFAULT_GOAL := help
+.DEFAULT_GOAL := build
