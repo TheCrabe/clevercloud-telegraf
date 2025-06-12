@@ -34,4 +34,7 @@ go.work.sum
 # CleverCloud
 .clever.json
 
+# App
+telegraf/
+.gitmodules
 bin/
