@@ -35,6 +35,5 @@ go.work.sum
 .clever.json
 
 # App
-telegraf/
-.gitmodules
 bin/
+telegraf/
