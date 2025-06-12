@@ -4,7 +4,7 @@
 SUBMODULE_NAME := telegraf
 SUBMODULE_URL := https://github.com/influxdata/telegraf.git
 SUBMODULE_BRANCH ?= master
-BINARY := telegraf
+BINARY := bin/telegraf
 
 # Couleurs pour une meilleure lisibilité
 GREEN  := \\033[0;32m
@@ -29,7 +29,7 @@ init:
 	fi
 	@if [ ! -d $(SUBMODULE_NAME)/.git ]; then \
 		echo "${YELLOW}Ajout du sous-module $(SUBMODULE_NAME)...${NC}"; \
-		git submodule add -b $(SUBMODULE_BRANCH) $(SUBMODULE_URL) $(SUBMODULE_NAME) || \
+		git submodule add -f -b $(SUBMODULE_BRANCH) $(SUBMODULE_URL) $(SUBMODULE_NAME) || \
 		echo "${RED}Erreur lors de l'ajout du sous-module. Vérifiez qu'il n'existe pas déjà.${NC}"; \
 	else \
 		echo "${GREEN}Le sous-module $(SUBMODULE_NAME) est déjà initialisé.${NC}"; \
@@ -39,7 +39,7 @@ init:
 update:
 	@if [ ! -d $(SUBMODULE_NAME)/.git ]; then \
 		echo "${YELLOW}Le sous-module n'existe pas. Exécution de 'make init'.${NC}"; \
-		git submodule add $(SUBMODULE_URL) $(SUBMODULE_NAME); \
+		make init; \
 	else \
 		echo "${YELLOW}Mise à jour du sous-module $(SUBMODULE_NAME)...${NC}"; \
 		git submodule update --init --recursive --remote $(SUBMODULE_NAME); \

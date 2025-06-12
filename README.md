@@ -4,7 +4,7 @@ Telegraf instance to deploy on CleverCloud in a golang app
 
 ## Setup
 0. Init golang app on CleverCloud  
-   **(CleverCloud Console)[https://console.clever-cloud.com]**  
+   **[CleverCloud Console](https://console.clever-cloud.com)**  
    Create... > an application > CREATE A BRAND NEW APP > Go
 
    **clever-tools**  
