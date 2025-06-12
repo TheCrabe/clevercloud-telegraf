@@ -4,7 +4,6 @@
 SUBMODULE_NAME := telegraf
 SUBMODULE_URL := https://github.com/influxdata/telegraf.git
 SUBMODULE_BRANCH ?= master
-MAKE := make
 BINARY := bin/telegraf
 
 # Couleurs pour une meilleure lisibilité
@@ -20,7 +19,7 @@ build: update
 		exit 1; \
 	fi
 	@echo "${YELLOW}Construction de $(SUBMODULE_NAME)...${NC}"
-	@cd $(SUBMODULE_NAME) && $(MAKE)
+	@cd $(SUBMODULE_NAME) && make build
 	@echo "${YELLOW}Construction de l'application...${NC}"
 	@mkdir -p bin
 	@cp $(SUBMODULE_NAME)/telegraf $(BINARY)
